@@ -1,3 +1,5 @@
+import random
+
 def Obtener_Largo_Tablero(): 
     Largo_Pasillo = input("Ingresar Largo del pasillo: ")
     Flag = True
@@ -15,7 +17,6 @@ def Obtener_Largo_Tablero():
              Flag = False
 
     return Largo_Pasillo
-    ##print(f"El largo del tablero seleccionado es: {Largo_Pasillo}")
 
 def Generar_Tablero(largo_Pasillo):
     Filas = 11
@@ -46,5 +47,46 @@ def Obtener_Cantidad_Guardias():
         
         if type(Cantidad_Guardias) == int:
              Flag = False
+    return Cantidad_Guardias
 
-    print(f"La cantidad de guardias seleccionados son: {Cantidad_Guardias}")
+def Comprobar_Cantidad_Guardias(Largo_Pasillo, Cantidad_Guardias):
+    Flag = True
+
+    Cantidad_De_Casillas = Largo_Pasillo * 11
+    Casillas_Usables = Cantidad_De_Casillas - 2
+    
+    while Flag:
+        if Cantidad_Guardias > Casillas_Usables:
+            print(f"Hay mas guardias de los posibles, cantidad maxima posible de guardias {Casillas_Usables}\n")
+            Cantidad_Guardias = Obtener_Cantidad_Guardias()
+        else:
+            Flag = False
+    return Cantidad_Guardias
+
+def Generar_Guardias(Largo_Pasillo, Cantidad_Guardias, Tablero):
+    Cantidad_Guardias = Comprobar_Cantidad_Guardias(Largo_Pasillo, Cantidad_Guardias)
+    i = 0
+    while i < Cantidad_Guardias:
+        x = random.randint(0,Largo_Pasillo - 1)
+        y = random.randint(0,10)
+        while (Tablero[y][x] == "S" or Tablero[y][x] == "*" or Tablero[y][x] == "!"):
+            x = random.randint(0,Largo_Pasillo - 1)
+            y = random.randint(0,10)
+
+        Tablero[y][x] = "!"
+        i += 1
+    
+    return Tablero
+
+def Generar_Objetivo(Largo_Pasillo,Tablero):
+    Flag = True
+    Objetivo = random.randint(0,10)
+    while Flag:
+        if Tablero[Objetivo][Largo_Pasillo - 1] == "S":
+            Objetivo = random.randint(0,10)
+        else:
+            Tablero[Objetivo][Largo_Pasillo - 1] = "*"
+            Flag = False
+    
+    
+    return Tablero
