@@ -1,5 +1,6 @@
 import Logica_Tablero
 
+Posicion_S = [0,5]
 Largo_Pasillo = Logica_Tablero.Obtener_Largo_Tablero()
 Cantidad_Guardias = Logica_Tablero.Obtener_Cantidad_Guardias()
 
