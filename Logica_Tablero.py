@@ -7,9 +7,11 @@ def Obtener_Largo_Tablero():
     while(Flag):
         try: 
             Largo_Pasillo = int(Largo_Pasillo)
+            if Largo_Pasillo <= 0:
+                Largo_Pasillo = input("El largo del pasillo tiene que ser un numero entero mayor a 0, por favor reintentar: ")
     
         except:
-            Largo_Pasillo = input("El largo del pasillo tiene que ser un numero intero, por favor reintentar: ")
+            Largo_Pasillo = input("El largo del pasillo tiene que ser un numero entero mayor a 0, por favor reintentar: ")
             if type(Largo_Pasillo) == int:
                 Largo_Pasillo = int(Largo_Pasillo)
         
@@ -39,9 +41,11 @@ def Obtener_Cantidad_Guardias():
     while(Flag):
         try: 
             Cantidad_Guardias = int(Cantidad_Guardias)
+            if Cantidad_Guardias <= 0:
+                Cantidad_Guardias = input("El largo del pasillo tiene que ser un numero entero mayor a 0, por favor reintentar: ")
     
         except:
-            Cantidad_Guardias = input("La cantidad de guardias tiene que ser un numero entero, por favor reintentar: ")
+            Cantidad_Guardias = input("La cantidad de guardias tiene que ser un numero entero mayor a 0, por favor reintentar: ")
             if type(Cantidad_Guardias) == int:
                 Cantidad_Guardias = int(Cantidad_Guardias)
         
