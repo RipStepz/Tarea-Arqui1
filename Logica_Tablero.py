@@ -21,9 +21,9 @@ def Obtener_Largo_Tablero():
     return Largo_Pasillo
 
 def Generar_Tablero(largo_Pasillo):
-    Filas = 11
-    columnas = largo_Pasillo
-    tablero = [["x" for _ in range(columnas)] for _ in range(Filas)]
+    columnas = 11  # Ahora las columnas son listas principales
+    filas = largo_Pasillo  # Ahora las filas son elementos internos
+    tablero = [["x" for _ in range(filas)] for _ in range(columnas)]
     return tablero
 
 def Imprimir_Tablero(Tablero):
@@ -41,8 +41,8 @@ def Obtener_Cantidad_Guardias():
     while(Flag):
         try: 
             Cantidad_Guardias = int(Cantidad_Guardias)
-            if Cantidad_Guardias <= 0:
-                Cantidad_Guardias = input("El largo del pasillo tiene que ser un numero entero mayor a 0, por favor reintentar: ")
+            if Cantidad_Guardias < 0:
+                Cantidad_Guardias = input("La cantidad de guardias tiene que ser un numero entero mayor o igual a 0, por favor reintentar: ")
     
         except:
             Cantidad_Guardias = input("La cantidad de guardias tiene que ser un numero entero mayor a 0, por favor reintentar: ")
