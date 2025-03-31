@@ -17,6 +17,9 @@ Flag = True
 while Flag:
     
     Direccion = Logica_movimiento.Pedir_Accion_Direccion()
+    if Direccion == "-1":
+        print("Juego terminado por decision del jugador")
+        break
     Binario = Logica_movimiento.Pedir_Accion_Base(Largo_Pasillo)
     Lista_Tablero_S_C = Logica_movimiento.Mover_En_binario(Binario, Tablero, Posicion_S, Direccion, Largo_Pasillo)
 

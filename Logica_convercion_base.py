@@ -7,26 +7,24 @@ def Conversion_binario_decimal(binario):
         bit = binario[i]
         if bit not in('0' , '1'):
             print("Binario no valido")
-            return
-
-        decimal += int(bit) * (2  (longitud - i - 1))
+            return None
+        
+        decimal += int(bit) * (2 ** (longitud - i - 1))
     return decimal
 
-
 def Conversion_octal_decimal(octal):
-
     decimal = 0
-    longitud =  len(octal)
+    longitud = len(octal)
 
     for i in range(longitud):
         digito = octal[i]
-        if digito not in ('01234567'):
-            print("Octal no valido")
-            return
+        
+        if digito not in '01234567':  
+            print("Octal no válido")
+            return None 
+        
+        decimal += int(digito) * (8 ** (longitud - i - 1))  
 
-        decimal += int(digito) * (8  (longitud - i - 1))
-
-        decimal += int(digito) * (8  (longitud - i - 1))
     return decimal
 
 def Conversion_hexa_decimal(hexa):
