@@ -1,4 +1,4 @@
-import Logica_Tablero, Logica_movimiento
+import Logica_Tablero, Logica_movimiento, Logica_convercion_base
 
 Posicion_S = [5,0]
 Largo_Pasillo = Logica_Tablero.Obtener_Largo_Tablero()
@@ -32,8 +32,25 @@ while Flag:
         Flag = False
 
     elif Caso_de_movimiento == 2: ## *
-        print("Lograste llegar a tu objetivo, se iniciara la etapa final")
-        Flag = False ## por mientras
-    
+        print("\nLograste llegar a tu objetivo, se iniciara la etapa final")
+        Numero_Secreto = Logica_movimiento.hackeo_Numero_en_base_X(Largo_Pasillo)
+        print(f"El numero en decimal es {Numero_Secreto[0]} y en binario es {Numero_Secreto[1]}")
+
+        if 0 < Largo_Pasillo and Largo_Pasillo <= 20 :
+            Respuesta = input(f"El numero binario que tienes que transformar a decimal es {Numero_Secreto[1]} :")
+
+        elif 20 < Largo_Pasillo and Largo_Pasillo <= 100:
+            Respuesta = input(f"El numero octal que tienes que transformar a decimal es {Numero_Secreto[1]}: ")
+
+        elif Largo_Pasillo > 100:
+            Respuesta = input(f"El numero de hexadecimal que tienes que transformar a decimal es {Numero_Secreto[1]} :")
+
+        if Numero_Secreto[0] == int(Respuesta):
+            print("felicidades ganaste el juego")
+            
+        else:
+            print("Perdiste")
+        
+        Flag = False 
     else: ## X el juego continua
         Logica_Tablero.Imprimir_Tablero(Tablero)

@@ -1,4 +1,4 @@
-import Logica_convercion_base, re
+import Logica_convercion_base, re , random
 
 def es_binario(cadena):
     patron = r"^[01]+$"  
@@ -212,3 +212,25 @@ def Mover_En_binario(Binario, Tablero, Posicion_S, Direccion, Largo_Pasillo):
         Retorno.append(Caso_de_movimiento)
         
         return Retorno
+    
+def hackeo_Numero_en_base_X(Largo_Pasillo):
+    Numero_Secreto = 0
+    retorno = [] ## posicion 0 = decimal , posicion 1 = otra base
+    if 0 < Largo_Pasillo and Largo_Pasillo <= 20 :
+        Numero_Secreto = random.randint(0, 20)
+        retorno.append(Numero_Secreto)
+        Numero_Secreto = Logica_convercion_base.Conversion_decimal_binario(Numero_Secreto)
+        retorno.append(Numero_Secreto)
+    elif 20 < Largo_Pasillo and Largo_Pasillo <= 100:
+       Numero_Secreto = random.randint(0, 100)
+       retorno.append(Numero_Secreto)
+       Numero_Secreto = Logica_convercion_base.Conversion_decimal_octal(Numero_Secreto)
+       retorno.append(Numero_Secreto) 
+
+    elif Largo_Pasillo > 100:
+        Numero_Secreto = random.randint(0, 500)
+        retorno.append(Numero_Secreto)
+        Numero_Secreto = Logica_convercion_base.Conversion_decimal_hexa(Numero_Secreto)
+        retorno.append(Numero_Secreto) 
+    
+    return retorno
