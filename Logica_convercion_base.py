@@ -42,3 +42,40 @@ def Conversion_hexa_decimal(hexa):
             return
         decimal += tabla_hex[digito] * (16 ** (longitud - i - 1))
     return decimal
+## Para Hackeo##
+
+def Conversion_decimal_binario(decimal):
+    if decimal == 0:
+        return "0"
+
+    binario = ""
+    while decimal > 0:
+        resto = decimal % 2
+        binario = str(resto) + binario
+        decimal //= 2
+
+    return binario
+
+def Conversion_decimal_octal(decimal):
+    if decimal == 0:
+        return "0"
+
+    octal = ""
+    while decimal > 0:
+        resto = decimal % 8
+        octal = str(resto) + octal
+        decimal //= 8
+
+    return octal
+
+def Conversion_decimal_hexa(decimal):
+    if decimal == 0:
+        return "0"
+    tabla = "0123456789ABCDEF"
+    hexa = ""
+    while decimal > 0:
+        resto = decimal % 16
+        hexa = tabla[resto] + hexa
+        decimal //= 16
+
+    return hexa

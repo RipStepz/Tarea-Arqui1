@@ -34,7 +34,6 @@ while Flag:
     elif Caso_de_movimiento == 2: ## *
         print("\nLograste llegar a tu objetivo, se iniciara la etapa final")
         Numero_Secreto = Logica_movimiento.hackeo_Numero_en_base_X(Largo_Pasillo)
-        print(f"El numero en decimal es {Numero_Secreto[0]} y en binario es {Numero_Secreto[1]}")
 
         if 0 < Largo_Pasillo and Largo_Pasillo <= 20 :
             Respuesta = input(f"El numero binario que tienes que transformar a decimal es {Numero_Secreto[1]} :")
